@@ -1,1 +1,20 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Admins.cfg</title>
+</head>
+<body>
+    <div id="admins"></div>
+    <script>
+        fetch('Admins.cfg')
+            .then(response => response.text())
+            .then(text => {
+                const div = document.getElementById('admins');
+                div.innerHTML = text.replace(/\n/g, '<br>');
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
